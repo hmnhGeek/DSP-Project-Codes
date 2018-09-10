@@ -1,5 +1,5 @@
 import argparse as ap 
-import lsb_replacement
+import lsb_matching
 
 parser = ap.ArgumentParser()
 parser.add_argument('image', type=str, help='Pass image address here.')
@@ -9,8 +9,8 @@ args = parser.parse_args()
 if not args.e:
 	# this means we have to hide the data in the image.
 	text = raw_input("Enter the text: ")
-	print lsb_replacement.lsb_replacement.image_embedding(args.image, text, args.image+"-stego.png")
+	print lsb_matching.lsb_matching.image_embedding(args.image, text, args.image+"-stego.png")
 else:
 	key = input("Enter the key: ")
-	msg = lsb_replacement.lsb_replacement.expose_message(args.image, key)
+	msg = lsb_matching.lsb_matching.expose_message(args.image, key)
 	print msg
